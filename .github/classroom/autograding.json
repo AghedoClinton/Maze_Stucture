@@ -1,0 +1,104 @@
+{
+  "tests": [
+    {
+      "name": "Test a Random Maze",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testRandomMaze1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Broken Maze Throws IllegalArgumentException",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testBrokenMazeShouldThrowException",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Complex Maze",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testRandomComplexMaze1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test with only Minotaurs should fail",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testMazeWithLotsOfMinotaursThrows",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Maze Missing 1 item should throw",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testMazeMissing1ItemShouldThrowException",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test a special Custom Maze 1 ",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testCustomMaze1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test a custom maze 2",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testCustomMaze2",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test Custom Maze 3",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testCustomMaze3",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test Custom Maze 4",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testCustomMaze4",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test Custom Maze 5",
+      "setup": "",
+      "run": "./gradlew test --tests DaedalusSolverTest.testCustomMaze5",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    }
+  ]
+}
