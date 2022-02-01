@@ -32,77 +32,98 @@ public class DaedalusSolver {
      */
     public String solve(Cell start) {
         //complete this method
-        if(start.doors.isEmpty() && (!foundRing && !foundSword && !foundMinotaur) ) {
-            throw new IllegalArgumentException("not a valid maze");
-        }
-        if (!foundRing || !foundSword || !foundMinotaur  ) {
-
-            checkContent(start.contents); //
-
-            if(!checkDoorsInCell(start.doors)) {
-                checkCell(start.doors);
+            if (!foundRing || !foundSword || !foundMinotaur  ) {
+                checkContent(start.contents); //check if start.contents contains the item we are looking for
+                checkDoorsInCell(start.doors); //check all the doors to see if we have visited their cell previously
+                checkCell(start);//navigate through the doors
             }
 
-        }
-
-        System.out.println(path);
         return path;
     }
 
-    private boolean checkDoorsInCell(Map<Door, Cell> doors) {
-        boolean allCellsAlreadyVisited=true;
-        for (Map.Entry<Door, Cell> entry : doors.entrySet()) {
-            Cell value = entry.getValue();
+    /**
+     * doesnt return anything void
+     * takes in the cell and navigate through the doors if they are not in the visitedCell stack
+     * @param start the starting cell or the next cell to navigate
+     */
 
-            if (!visitedCells.contains(value)) {
-                allCellsAlreadyVisited = false;
-                break;
-            }
-        }
-        return allCellsAlreadyVisited;
-    }
-
-    private void checkCell(Map<Door, Cell> doors) {
-        for (Map.Entry<Door, Cell> entry : doors.entrySet()) {
+    private void checkCell(Cell start) {
+        for (Map.Entry<Door, Cell> entry : start.doors.entrySet()) {
+            if (!foundRing || !foundSword || !foundMinotaur  ) {
             String door = String.valueOf(entry.getKey());
             Cell value = entry.getValue();
 
-            if(!visitedCells.contains(value)) {
-                if (!foundRing || !foundSword || !foundMinotaur  ) {
+            //System.out.println("DOORS: "+start.doors);
 
-                    visitedCells.push(value);
+            if(!visitedCells.contains(value)) { //if we have not visited the particular cell before
+                    visitedCells.push(value); //add it to the visited cell stack
                     char currentPath = door.charAt(0);
-                    path = path + currentPath;
-                    System.out.println(path);
-                    solve(value);
+                    path = path + currentPath; //add the door first character to the path
+                    // System.out.println(path);
+                    solve(value); // recall the solve function with the cell
                 }
             }
         }
 
     }
 
+    /**
+     * doesnt return anything void
+     * takes in the doors to check if all the cells in the doors have been visited
+     * @param doors the doors in a cell
+     */
+
+    private void checkDoorsInCell(Map<Door, Cell> doors) {
+        boolean allCellsAlreadyVisited=true;
+        if (doors.size() ==0) { //if they are not doors, throw an error
+            throw new IllegalArgumentException("not a valid maze");
+
+        }
+        for (Map.Entry<Door, Cell> entry : doors.entrySet()) {
+            Cell value = entry.getValue();
+
+            if (!visitedCells.contains(value)) { //if there is a cell that hasnt been entered
+                allCellsAlreadyVisited = false;
+                break;
+            }
+        }
+        if(allCellsAlreadyVisited) { //if all cell have been visited, remove them from the stack to continue the search
+
+            for (Map.Entry<Door, Cell> entry : doors.entrySet()) {
+                visitedCells.remove(entry.getValue());
+            }
+        }
+    }
+
+
+    /**
+     * doesnt return anything void
+     * takes in content and compare the value with the item we are meant to find
+     * @param contents the doors in a cell
+     */
+
     private void checkContent(Contents contents) {
         if(contents == Contents.SWORD){
-            if(!foundSword) {
+            if(!foundSword) { // once an item is found for the first time, reset the stack
                 visitedCells.clear();
             }
             foundSword=true;
-            System.out.println("Sword found");
+            //System.out.println("Sword found");
         }
         else if(contents == Contents.RING){
-            if(!foundRing) {
+            if(!foundRing) { // once an item is found for the first time, reset the stack
                 visitedCells.clear();
             }
             foundRing=true;
-            System.out.println("Ring found");
+             //System.out.println("Ring found");
 
         }
         else if(contents == Contents.MINOTAUR){
-            if(!foundMinotaur) {
+            if(!foundMinotaur) { // once an item is found for the first time, reset the stack
                 visitedCells.clear();
             }
             foundMinotaur=true;
-            System.out.println("Minotaur found");
+             //System.out.println("Minotaur found");
         }
     }
 
