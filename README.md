@@ -1,4 +1,4 @@
-# Assignment 1 (Part B) Daedalus is ded
+#  Daedalus is ded
 
 Your goal in this assignment is to complete the `DaedalusSolver` class (in the provided intelliJ project) so that your program automatically finds its way out of a maze (as defined in Part 1 of this assignment).
 
@@ -20,33 +20,3 @@ If this assignment sounds intimidating don't worry, we will discuss it in class.
 
 We will demo running the Unit tests in class (so everyone is familiar with how to test their solutions using the given test cases). We will also discuss approaches to solving the assignment.
 
-Grading:
-
-| Deliverable  | Grade  |
-|---|---|
-| Code Readability  | 2 |
-| Code Design       | 2 |
-| Functionality     | 2 |
-| Total Grade       | 6 |
-
-Code Readability:
-- use of camelCase/PascalCase for variable names
-- all method headers explain the method purpose and all parameters and return values
-- favour intuitive variable names and coding style as opposed to excessive commenting
-  - eg. THIS: `String doorPath = ...;`,
-  - NOT: `String p =  ...; //p is the door path`
-- use consistent coding style throughout all files
-
-Code design:
-- have you segmented your code into logical chunks
-- have you used basic OOP design principals
-  - example  private methods where appropriate
-- does the design aid or detract from the Readability
-
-Functionality:
-  - does your program work
-  - do all of the unit-tests pass
-
-
-Note this Part of the assignment is worth 3 of the 5 points
-Thus your Full Assignment 1 Grade is: (Part 1 out of 2) plus (part 2 out of 3)
